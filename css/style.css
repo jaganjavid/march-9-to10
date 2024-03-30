@@ -1,0 +1,66 @@
+
+*{
+    box-sizing: border-box;
+}
+
+/* Tag Selector */
+
+/* h1{
+    color: orangered;
+} */
+
+/* ID Selector */
+/* 
+#heading-2{
+    color: blue;
+} */
+
+.heading-color{
+    color: rgba(8, 15, 180, 1);
+}
+
+
+.box{
+    background-color: grey; 
+    border: 10px solid green;
+    /* padding: 50px; */
+    /* padding-top: 50px;
+    padding-right: 100px;
+    padding-bottom: 150px;
+    padding-left: 200px; */
+
+    /* Passing two parameters 1st => Top and Bottom and 2nd => left and right */
+    /* padding: 100px 200px; */
+
+    /* Passing four parameters 1St => Top, 2nd => Right,3rd => Bottom, 4th => left */
+    padding: 50px 100px 150px 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.box-2{
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    margin: 15px 0px;
+    border: 5px solid red;
+    padding: 50px;
+}
+
+.box-3{
+    width: 200px;
+    height: 200px;
+    background-color: green;
+    padding: 50px;
+    border: 5px solid blue;
+    box-sizing: border-box;
+}
