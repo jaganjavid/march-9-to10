@@ -71,6 +71,22 @@ header{
     line-height: 70px;
 }
 
+.banner-wrapper h1>span{
+    display: block;
+}
+
+.banner-wrapper h1>span:last-child {
+    color: green;
+}
+
+.banner-wrapper h1>span:last-child>span{
+    color: blue;
+}
+
+.banner-wrapper h1>span:last-child>span>span{
+    color: orangered;
+}
+
 .banner-wrapper p{
     margin: 25px 0px 0px 0px;
 }
@@ -94,6 +110,7 @@ header{
     color: #333333;
     font-weight: 600;
 }
+
 
 .jobs{
     padding: 100px 0px;
@@ -147,9 +164,11 @@ header{
 .jobs-wrapper>div:nth-child(1){
     background-color: #0C445C;
 }
+
 .jobs-wrapper>div:nth-child(2){
     background-color: #5B2C98; 
 }
+
 .jobs-wrapper>div:nth-child(3){
    background-color: #7F3219; 
 }
@@ -159,4 +178,61 @@ footer{
     text-align: center;
     padding: 15px 0px;
     color: #4254F4;
+}
+
+
+@media only screen and (max-width: 1000px){
+    .banner-wrapper h1{
+        font-size: 35px;
+    }
+}
+
+
+@media only screen and (max-width: 800px){
+    .banner-wrapper h1{
+        font-size: 30px;
+    }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+
+    .header-wrapper{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .banner-wrapper{
+        flex-direction: column;
+    }
+
+    .banner-wrapper>div{
+        width: 100%;
+        text-align: center;
+    }
+
+    .banner-wrapper>div>div{
+        justify-content: center;
+    }
+
+    .banner-wrapper h1 span{
+        display: inline;
+    }
+
+    .banner-wrapper div img{
+        margin-top: 50px;
+    }
+    
+    /* .header-wrapper{
+        display: block;
+        text-align: center;
+    }
+
+    .header-wrapper nav{
+        margin-top: 20px;
+        justify-content: center;
+    } */
+
 }
