@@ -121,6 +121,16 @@ main {
     padding: 100px 0px;
 }
 
+.h-clients>div>div:first-child{
+    position: relative;
+}
+
+.h-clients>div>div:first-child>img{
+    position: absolute;
+    top: -30px;
+    left: 0px;
+}
+
 .h-clients>div>div>h2{
      position: relative; 
     /* display: inline-block; */
