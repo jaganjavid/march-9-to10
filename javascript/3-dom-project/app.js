@@ -14,7 +14,7 @@ loadEventListener(); //have to learn hoisting
 
 function loadEventListener() {
 
-    console.log("START")
+    // console.log("START")
 
     // DOM LOAD EVENT
     document.addEventListener("DOMContentLoaded", getTasks);
@@ -31,6 +31,8 @@ function loadEventListener() {
 }
 
 function getTasks() {
+
+    console.log("LOADED");
 
 
     let tasks;
@@ -84,50 +86,51 @@ function addTask(e) {
     // Validate
     if (taskInput.value === "") {
         alert("Please fill the form");
-        return;
-    }
+    } else {
+        // check if it exist
 
-    // check if it exist
+        const existingtasks = document.querySelectorAll(".collection-item");
 
-    const existingtasks = document.querySelectorAll(".collection-item");
-
-    for (let task of existingtasks) {
-        if (task.innerText.trim() === taskInput.value.trim()) {
-            alert("Already exist");
-            return;
+        for (let task of existingtasks) {
+            if (task.innerText.trim() === taskInput.value.trim()) {
+                alert("Already exist");
+                return;
+            }
         }
+
+
+        // Create a li element
+        const li = document.createElement("li");
+
+        // Add a Class
+        li.className = "collection-item";
+
+        // Create a text node
+        li.appendChild(document.createTextNode(taskInput.value));
+
+        // Create a new link element
+        const link = document.createElement("a");
+
+        // Add class to link
+        link.className = "delete-item secondary-content";
+
+        // Add icon html
+        link.innerHTML = `<i class="fa fa-remove"></i>`;
+
+        // add link to li
+        li.appendChild(link);
+
+        // Add li to ul
+        taskList.appendChild(li);
+
+        // Store in LS
+        storeTaskInLocalStorage(taskInput.value);
+
+        // Clear Input Task
+        taskInput.value = "";
     }
 
 
-    // Create a li element
-    const li = document.createElement("li");
-
-    // Add a Class
-    li.className = "collection-item";
-
-    // Create a text node
-    li.appendChild(document.createTextNode(taskInput.value));
-
-    // Create a new link element
-    const link = document.createElement("a");
-
-    // Add class to link
-    link.className = "delete-item secondary-content";
-
-    // Add icon html
-    link.innerHTML = `<i class="fa fa-remove"></i>`;
-
-    // add link to li
-    li.appendChild(link);
-
-    // Add li to ul
-    taskList.appendChild(li);
-
-    // Store in LS
-    storeTaskInLocalStorage(taskInput.value);
-
-    // Clear Input Task
-    taskInput.value = "";
 
 }
 
@@ -183,7 +186,7 @@ function removeTaskFromLocalStorage(taskElement) {
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
 
-    
+
 
 }
 
