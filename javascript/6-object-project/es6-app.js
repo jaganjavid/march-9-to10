@@ -1,15 +1,16 @@
 
-
-// Book Construtor
-
-function Book(title, author, isbn) {
-    this.title = title;
-    this.author = author;
-    this.isbn = isbn;
+class Book {
+    constructor(title, author, isbn){
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+    }
 }
 
-function UI() {
-    UI.prototype.addBookToList = function (book) {
+class UI{
+    // Add Book to list
+
+    addBookToList(book) {
 
         const list = document.querySelector("#book-list");
 
@@ -28,26 +29,24 @@ function UI() {
 
         list.appendChild(row);
 
-    },
+    }
 
-        UI.prototype.deleteBook = function (target) {
-            if (confirm("Are you sure?")) {
-                if (target.className === "delete") {
-                    target.parentElement.remove();
-                }
+    deleteBook(target) {
+        if (confirm("Are you sure?")) {
+            if (target.className === "delete") {
+                target.parentElement.remove();
             }
-        },
-
-        UI.prototype.clearField = function () {
-            // document.querySelector("#title").value = "";
-            // document.querySelector("#author").value = "";
-            // document.querySelector("#isbn").value = "";
-
-            document.querySelector("#book-form").reset();
         }
+    }
 
+    clearField() {
+        // document.querySelector("#title").value = "";
+        // document.querySelector("#author").value = "";
+        // document.querySelector("#isbn").value = "";
+
+        document.querySelector("#book-form").reset();
+    }
 }
-
 
 // Event Listen for submit
 
@@ -64,6 +63,7 @@ document.querySelector("#book-form").addEventListener("submit", function (e) {
 
     const book = new Book(title, author, isbn);
     const ui = new UI();
+    
 
 
 
@@ -114,3 +114,4 @@ document.querySelector(".clear-btn").addEventListener("click", function (e) {
 
 
 })
+
