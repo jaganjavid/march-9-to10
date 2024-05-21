@@ -12,6 +12,8 @@ class UI{
 
     addBookToList(book) {
 
+        console.log(this);
+
         const list = document.querySelector("#book-list");
 
         // Create a tr element
@@ -45,6 +47,32 @@ class UI{
         // document.querySelector("#isbn").value = "";
 
         document.querySelector("#book-form").reset();
+    }
+
+    filterBooks(){
+
+        const searchText = document.querySelector("#search").value.toLowerCase();
+
+        // Get all book rows
+        const rows = document.querySelectorAll("#book-list tr");
+
+        // Loop each book 
+        rows.forEach(function(row) {
+            
+            const titleCell = row.querySelector("td:nth-child(1)");
+            const authorCell = row.querySelector("td:nth-child(2)");
+
+            if(titleCell.innerText.toLowerCase().includes(searchText) || authorCell.innerText.toLowerCase().includes(searchText)){
+                row.style.display = "";
+                console.log("Yes")
+            } else{
+                row.style.display = "none";
+                console.log("no")
+            }
+           
+
+        })
+
     }
 }
 
@@ -176,12 +204,22 @@ document.querySelector(".clear-btn").addEventListener("click", function (e) {
 })
 
 
+document.querySelector("#search").addEventListener("input", function(){
+     // Instantiate UI
+     const ui = new UI();
+
+     ui.filterBooks();
+})
 
 
 
-function test(){
-    console.log(5 + 5);
-    console.log(10 + 10);
+function test(a,b){
+    return a + b;
 }
 
-test();
+function test2(){
+    console.log(test(5, 5));
+}
+
+test2();
+
